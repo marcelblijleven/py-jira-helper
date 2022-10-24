@@ -34,6 +34,12 @@ def get_previous_tag(current_tag: str, cwd: Optional[PathType]) -> str:
 
 
 def get_commits_between_tags(tag_a: str, tag_b: str, cwd: Optional[PathType]) -> str:
+    """
+    Retrieves commits between the two provided tags
+    :param tag_a: the previous tag
+    :param tag_b: the current tag
+    :param cwd: optional directory to retrieve tag from
+    """
     if (result := execute_process(
         args=['git', 'log', '--oneline', f'{tag_a}..{tag_b}'],
         cwd=cwd,
